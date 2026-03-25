@@ -1,0 +1,115 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: whitesmoke;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Inputs & Selects */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd; /* Thicker border for better visibility */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #090979;
+    outline: none;
+    box-shadow: 0 0 8px rgba(9, 9, 121, 0.2);
+}
+
+/* Quiz Questions Styling */
+.questions {
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid transparent; /* Placeholder to prevent jumping */
+    display: block;
+    margin-top: 20px;
+    transition: border 0.3s ease;
+}
+
+fieldset {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fdfdfd;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #090979;
+    padding: 0 10px;
+}
+
+/* Clickable labels for checkboxes/radios */
+.radio-group label, 
+fieldset label:not(.questions) {
+    display: block;
+    font-weight: normal;
+    background: #f4f7f6;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+fieldset label:not(.questions):hover {
+    background: #e9ecef;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+}
+
+button:hover {
+    background-color: #219150;
+    transform: translateY(-1px);
+}

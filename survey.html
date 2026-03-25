@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Survey Form</h1>
+
+        <form id="survey-form">
+            <div class="form-group">
+             
+                    <label for="name" >Full Name</label>
+                    <input type="text" id="name" placeholder=" Name" class="required"></br>
+                    <label for="number">Phone Number</label>
+                    <input type="text" id="number" placeholder=" Phone number" class="required"></br>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Email" class="required"></br>
+                    <label for="role">How did you hear about us?</label>
+                    <select id="role"required>
+                        <option value=" disabled selected">Select an option</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="friend">Friend/Referral</option>
+                        <option value="ad">Advertisement</option>
+                        <option value="other">Other</option>
+                    </select><br/>
+                    <label>Would you recommend us to a friend?</label>
+                    <div class="radio-group">
+                        <label><input name="recommend" value="yes" type="radio"> Definitely</label>
+                        <label><input name="recommend" value="maybe" type="radio"> Maybe</label>
+                        <label><input name="recommend" value="no" type="radio"> Not sure</label></br>
+                    </div>
+                    <br>
+                    <p><em>How About Quiz?</em></p>
+                    <button><a href="question1.html">click Here</a></button>
+    
+                    <label for="comments">Any additional comments?</label>
+                    <textarea id="comments" rows="4" placeholder="Type here..."></textarea>
+                    <button type="submit" id="submit">Submit Survey</button>
+
+            </div>
+        </form>
+    </div>
+<script>
+    document.getElementById('survey-form').addEventListener('submit', function(event) {
+    let isValid = true;
+    let missedQuestions = [];
+    
+
+    // 1. Validate Text Inputs (Name, Phone, Email)
+    const requiredInputs = this.querySelectorAll('.required');
+    requiredInputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            input.style.border = "2px solid red";
+        } else {
+            input.style.border = "";
+        }
+    });
+    // Validate questions
+    const questions = document.querySelectorAll('.questions');
+    questions.forEach(question => {
+        var qid = question.getAttribute('id');
+        const answers= document.getElementsByName(qid);
+        if (!Array.from(answers).some(a => a.checked)) {
+            isValid = false;
+            missedQuestions.push(qid);
+             question.style.border = "1px solid red";
+            } else {
+            question.style.border = ""; 
+        }
+    });
+    
+     // 2. Validate Recommendation (Radio)
+    const recommend = document.getElementsByName('recommend');
+    if (!Array.from(recommend).some(r => r.checked)) {
+        isValid = false;
+        missedQuestions.push("Recommendation");
+    }
+
+    // 3. Validate Individual Quiz Questions (q1 through q10)
+    for (let i = 1; i <= 10; i++) {
+        const questionName = 'q' + i;
+        const group = document.getElementsByName(questionName);
+        
+        // Check if at least one checkbox in this specific question is checked
+        const isAnswered = Array.from(group).some(cb => cb.checked);
+        
+        if (!isAnswered) {
+            isValid = false;
+            missedQuestions.push("Question " + i);
+        }
+    }
+    // 4. Final Decision
+  if (!isValid) {
+         event.preventDefault(); // Stop form submission
+        
+//         if (missedQuestions.length > 0) {
+//             a("The following items were not attempted:\n- " + missedQuestions.join("\n- "));
+//         }
+     } else {
+        //alert("Success! Your quiz has been submitted.");
+    }
+}); 
+
+   </script>
+</body>
+</html>

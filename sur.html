@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Survey Form</title>
+ <style>
+    /* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 { margin-bottom: 10px; color: #2c3e50; }
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-size: 16px;
+}
+
+/* Radio & Checkbox Styling */
+.radio-group label, 
+.checkbox-group label {
+    display: block;
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+/* Button Styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #219150;
+}
+ </style>
+</head>
+<body>
+      <div class="container">
+        <h1>Survey Form</h1>
+
+        <form id="survey-form">
+            <div class="form-group">
+                    <label for="name" >Full Name</label>
+                    <input type="text" id="name" placeholder=" Name" class="required"></br>
+                    <label for="number">Phone Number</label>
+                    <input type="text" id="number" placeholder=" Phone number" class="required"></br>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Email" class="required"></br>
+                    <label for="role">How did you hear about us?</label>
+                    <select id="role"required>
+                        <option value=" disabled selected">Select an option</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="friend">Friend/Referral</option>
+                        <option value="ad">Advertisement</option>
+                        <option value="other">Other</option>
+                    </select></br>
+                    <label>Would you recommend us to a friend?</label>
+                    <div class="radio-group">
+                        <label><input name="recommend" value="yes" type="radio"> Definitely</label>
+                        <label><input name="recommend" value="maybe" type="radio"> Maybe</label>
+                        <label><input name="recommend" value="no" type="radio"> Not sure</label></br>
+                    </div>
+                    <fieldset>
+                        <legend><em>Quiz</em></legend>
+                    <label id="q1" class="questions">1.What does the acronym HTML stand for?</label>
+                           <label><input type="checkbox" name="q1" value="Hyper Text Markup Language">Hyper Text Markup Language</label>
+                           <label><input type="checkbox" name="q1" value="Hyper Text Management Language">Hyper Text Management Language</label>
+                           <label><input type="checkbox" name="q1" value="High-level Tech Modern Language"> High-level Tech Modern Language</label>
+                           <label><input type="checkbox" name="q1" value="Home Tool Markup Language">Home Tool Markup Language</label>
+                    <label  id="q2" class="questions">2.In the CSS Box Model, which layer is between the content and the border?</label>
+                           <label><input type="checkbox" name="q2" value="Margin">Margin</label>
+                           <label><input type="checkbox" name="q2" value="Padding">Padding</label>
+                           <label><input type="checkbox" name="q2" value="Border">Border</label>
+                           <label><input type="checkbox" name="q2" value="border"> Border</label>
+                    <label  id="q3" class="questions">3.Which property is used to change the background color in CSS?</label>
+                           <label><input type="checkbox" name="q3" value="color"> Color</label>
+                           <label><input type="checkbox" name="q3" value="bgcolor"> Bgcolor</label>
+                           <label><input type="checkbox" name="q3" value="background-color"> Background-color</label>
+                           <label><input type="checkbox" name="q3" value="fill"> Fill</label>
+                    <label  id="q4" class="questions">4.Which HTML5 element is used to specify a footer for a document or section?</label>
+                          <label><input type="checkbox" name="q4" value="footer"> Footer</label>
+                          <label><input type="checkbox" name="q4" value="section">section</label>
+                          <label><input type="checkbox" name="q4" value="bottom"> Bottom</label>
+                          <label><input type="checkbox" name="q4" value="header"> Header</label>
+                    <label  id="q5" class="questions">5.Which of the following is an example of a "Boolean" value?</label>
+                          <label><input type="checkbox" name="q5" value="true"> True</label>
+                          <label><input type="checkbox" name="q5" value="false"> False</label>
+                          <label><input type="checkbox" name="q5" value="hello world"> "Hello World"</label>
+                          <label><input type="checkbox" name="q5" value="3.14">3.14</label>
+                    <label  id="q6" class="questions">6.Which of these are "Front-end" technologies?</label>
+                          <label><input type="checkbox" name="q6" value="HTML"> HTML</label>
+                          <label><input type="checkbox" name="q6" value="CSS"> CSS</label>
+                          <label><input type="checkbox" name="q6" value="JavaScript"> JavaScript</label>
+                          <label><input type="checkbox" name="q6" value="MySQL" > MySQL</label>
+                    <label  id="q7" class="questions">7.Which of these are "Back-end" technologies?</label>
+                         <label><input type="checkbox" name="q7" value="HTML"> HTML</label>
+                         <label><input type="checkbox" name="q7" value="CSS"> CSS</label>
+                         <label><input type="checkbox" name="q7" value="JavaScript"> JavaScript</label>
+                         <label><input type="checkbox" name="q7" value="MySQL" > MySQL</label>
+                    <label  id="q8" class="questions">8.Which language is primarily used for styling web pages?</label>
+                         <label><input type="checkbox" name="q8" value="HTML">  HTML</label>
+                         <label><input type="checkbox" name="q8" value=" CSS"> CSS</label>
+                         <label><input type="checkbox" name="q8" value=" SQL"> SQL</label>
+                         <label><input type="checkbox" name="q8" value="php"> PHP</label>
+                    <label id="q9" class="questions">9./label>.Which HTML tag is used to create a clickable link?</label>
+                         <label><input type="checkbox" name="q9" value="a">a</label> 
+                         <label><input type="checkbox" name="q9" value="link">link</label>
+                         <label><input type="checkbox" name="q9" value="href">href</label>
+                         <label><input type="checkbox" name="q9" value="url">url</label>
+                    <label id="q10" class="questions" >10.What is the standard file extension for a JavaScript file?</label>
+                         <label><input type="checkbox" name="q10" value=".js">.js</label>
+                         <label><input type="checkbox" name="q10" value=".html">.html</label>
+                         <label><input type="checkbox" name="q10" value=".java"> .java</label>
+                         <label><input type="checkbox" name="q10" value=".script">.script</label>
+                     </fieldset><br>    
+                    <label for="comments">Any additional comments?</label>
+                    <textarea id="comments" rows="4" placeholder="Type here..."></textarea>
+                    <button type="submit" id="submit">Submit Survey</button>
+
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('survey-form').addEventListener('submit', function(event) {
+        let isValid = true;
+        let missedQuestions = [];
+        
+
+        // 1. Validate Text Inputs (Name, Phone, Email)
+            const requiredInputs = this.querySelectorAll('.requirted');
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.border = "2px solid red";
+                } else {
+                    input.style.border = "";
+                }
+            });
+            // Validate questions
+            const questions = document.querySelectorAll('.questions');
+            questions.forEach(question => {
+                var qid = question.getAttribute('id');
+                const answers= document.getElementsByName(qid);
+                if (!Array.from(answers).some(a => a.checked)) {
+                    isValid = false;
+                    missedQuestions.push(qid);
+                     question.style.border = "1px solid red";
+                    } else {
+                    question.style.border = ""; 
+                }
+            });
+                        // 2. Validate Recommendation (Radio)
+            const recommend = document.getElementsByName('recommend');
+            if (!Array.from(recommend).some(r => r.checked)) {
+                isValid = false;
+                missedQuestions.push("Recommendation");
+            }
+            // 3. Validate Individual Quiz Questions (q1 through q10)
+            for (let i = 1; i <= 10; i++) {
+                const questionName = 'q' + i;
+                const group = document.getElementsByName(questionName);
+                
+                // Check if at least one checkbox in this specific question is checked
+                const isAnswered = Array.from(group).some(cb => cb.checked);
+                
+                if (!isAnswered) {
+                    isValid = false;
+                    missedQuestions.push("Question " + i);
+                }
+            }
+            // 4. Final Decision
+            if (!isValid) {
+                event.preventDefault(); // Stop form submission
+                                
+                if (missedQuestions.length > 0) {
+                    alert("The following items were not attempted:\n- " + missedQuestions.join("\n- "));
+                }
+            } else {
+                alert("Success! Your quiz has been submitted.");
+            }
+        }); 
+        
+
+
+
+
+                    
+    </script>
+</body>
+</html>
