@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Survey Form</title>
+    <style>
+        /* ... (Your existing CSS remains the same) ... */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 40px 20px; }
+        
+        form, #success-message {
+            background: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Styling for the Success Message (Hidden by default) */
+        #success-message {
+            display: none; 
+            text-align: center;
+        }
+
+        #success-message h2 { 
+            color: #2c3e50;
+            margin-bottom: 15px; 
+            }
+        #success-message p { 
+            color: #7f8c8d;
+            margin-bottom: 25px; }
+
+        fieldset { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 25px;}
+        label { display: block; font-weight: 600; margin-bottom: 10px; color: #333; }
+        textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; resize: vertical; }
+        
+        footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background-image: linear-gradient( 98.4deg,  rgba(254,251,191,1) 16.6%, rgba(187,240,211,1) 81.8% );
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:hover { 
+            transform: translateY(-2px);
+             background: #eef2ff; }
+        button a {
+             color: #020024; 
+             text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <form id="survey-form">
+        <fieldset>
+            <label for="comments">Any additional comments?</label>
+            <textarea id="comments" rows="4" placeholder="Type here..."></textarea>
+        </fieldset>
+        <footer>
+            <div id="left-side">
+                <button type="button"><a href="question10.html">Previous</a></button>
+            </div>
+            <div id="right-side">
+                <button type="submit" id="submit">Submit Survey</button>
+            </div>
+        </footer>
+    </form>
+
+    <div id="success-message">
+        <h2>Thank You!</h2>
+        <p>Your response has been successfully submitted.</p>
+        <button><a href="survey.html">Submit Another Response</a></button>
+        
+    </div>
+
+    <script>
+        const surveyForm = document.getElementById('survey-form');
+        const successSection = document.getElementById('success-message');
+        const addAnotherBtn = document.getElementById('add-another-btn');
+
+        // Handle Form Submission
+        surveyForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop page refresh
+
+            const userConfirmed = confirm("Are you sure you want to submit?");
+            
+            if (userConfirmed) {
+                // Hide the form and show the success message
+                surveyForm.style.display = 'none';
+                successSection.style.display = 'block';
+            }
+        });
+
+        // Handle "Add Another Response" Click
+        addAnotherBtn.addEventListener('click', function() {
+            // Reset the form fields
+            surveyForm.reset();
+            
+            // Switch views back to the form
+            successSection.style.display = 'none';
+            surveyForm.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
